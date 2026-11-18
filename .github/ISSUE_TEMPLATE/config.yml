@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: QQ 机器人官方文档
+    url: https://bot.q.qq.com/wiki/develop/api-v2/
+    about: 接口协议、事件与错误码的唯一权威依据
+  - name: QQ 开放平台
+    url: https://q.qq.com
+    about: 机器人创建、凭证与权限申请
