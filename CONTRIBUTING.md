@@ -12,8 +12,10 @@
 
 ## 开发流程
 
+主仓库在 Gitee（<https://gitee.com/meilinkj/qqbot-sdk>），GitHub 为自动同步镜像，不接受反馈与 PR。
+
 ```bash
-git clone <repo-url>
+git clone https://gitee.com/meilinkj/qqbot-sdk.git
 cd qqbot-sdk
 mvn clean install   # 编译 + 单元测试（Java 17+）
 ```
@@ -26,8 +28,8 @@ mvn clean install   # 编译 + 单元测试（Java 17+）
 ## 提交与 PR
 
 - Commit message 使用简洁的祈使句，说明"为什么"。
-- PR 请描述：对应的官方文档链接、变更内容、测试方式。
-- Bug 报告请使用 Issue 模板，附上 `trace_id`（HTTP 响应头 `X-Tps-trace-ID` 或响应体 `trace_id`）便于平台排查。
+- PR 请提交到 [Gitee 主仓库](https://gitee.com/meilinkj/qqbot-sdk/pulls)，描述：对应的官方文档链接、变更内容、测试方式。
+- Bug 报告与功能建议请到 [Gitee Issues](https://gitee.com/meilinkj/qqbot-sdk/issues) 提交，附上 `trace_id`（HTTP 响应头 `X-Tps-trace-ID` 或响应体 `trace_id`）便于平台排查。`.github/ISSUE_TEMPLATE` 下的模板仅供 GitHub 镜像展示。
 
 ## 发布（Maintainer）
 

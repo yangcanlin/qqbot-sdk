@@ -11,6 +11,13 @@
 - Spring Boot 3 Starter 自动装配
 - Apache License 2.0
 
+## 仓库与反馈
+
+- 主仓库（Gitee）：<https://gitee.com/meilinkj/qqbot-sdk>
+- GitHub 镜像（自动同步，仅供浏览）：<https://github.com/yangcanlin/qqbot-sdk>
+- **Bug 反馈、功能建议请一律到 [Gitee Issues](https://gitee.com/meilinkj/qqbot-sdk/issues) 提交**，GitHub 镜像不处理反馈。
+- 代码贡献流程见 [CONTRIBUTING.md](CONTRIBUTING.md)。
+
 ## 模块
 
 | 模块 | 说明 |
