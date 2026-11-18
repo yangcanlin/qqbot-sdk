@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: QQ 机器人官方开发文档（V2）
+    url: https://bot.q.qq.com/wiki/develop/api-v2/
+    about: 接口协议、事件、错误码的唯一权威依据；平台侧问题请先对照文档
+  - name: 使用说明（README）
+    url: https://gitee.com/meilinkj/qqbot-sdk
+    about: 快速开始、事件列表、Maven 坐标与更多用法
+  - name: 贡献指南
+    url: https://gitee.com/meilinkj/qqbot-sdk/blob/main/CONTRIBUTING.md
+    about: 开发流程、PR 规范与发布说明

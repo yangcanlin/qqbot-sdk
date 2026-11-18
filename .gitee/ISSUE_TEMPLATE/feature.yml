@@ -1,0 +1,42 @@
+name: 功能建议
+description: 希望 SDK 新增接口、事件或能力
+title: "[功能建议]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢建议！本 SDK **严格对齐 [QQ 机器人官方开发文档](https://bot.q.qq.com/wiki/develop/api-v2/)**，不兼容任何非官方协议（OneBot / Simbot / NapCat 等）。
+        提出新接口 / 新事件前，请先在官方文档中找到对应能力并附上链接；官方文档尚未支持的能力无法实现。
+  - type: input
+    id: doc-link
+    attributes:
+      label: 官方文档链接
+      description: 建议能力对应的官方文档页面（api-v2）；纯体验类改进可填"无"
+      placeholder: "https://bot.q.qq.com/wiki/develop/api-v2/..."
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: 需求背景
+      description: 你想解决什么问题？当前缺少什么能力？
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: 期望的方案
+      description: 希望 SDK 提供怎样的接口 / 事件 / 行为
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: 考虑过的替代方案
+  - type: checkboxes
+    attributes:
+      label: 意向参与贡献
+      options:
+        - label: 我有意向参与实现并按 CONTRIBUTING.md 提交 PR
+          required: false
