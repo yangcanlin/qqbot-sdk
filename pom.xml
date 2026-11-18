@@ -183,6 +183,9 @@
           <configuration>
             <publishingServerId>central</publishingServerId>
             <autoPublish>false</autoPublish>
+            <excludeArtifacts>
+              <excludeArtifact>cn.meilinkj.qqbot:qqbot-sdk-example</excludeArtifact>
+            </excludeArtifacts>
           </configuration>
         </plugin>
       </plugins>
