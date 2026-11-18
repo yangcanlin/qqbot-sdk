@@ -11,7 +11,7 @@
 
   <artifactId>qqbot-sdk-example</artifactId>
   <name>QQ Bot SDK Example</name>
-  <description>Minimal runnable demo of the QQ Bot Java SDK: an echo bot for group @-messages and C2C private messages.</description>
+  <description>QQ 机器人 Java SDK 最小可运行示例：群@消息与单聊消息回声机器人（环境变量注入凭证）。</description>
 
   <dependencies>
     <dependency>

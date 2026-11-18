@@ -11,7 +11,7 @@
 
   <artifactId>qqbot-sdk-spring-boot-starter</artifactId>
   <name>QQ Bot SDK Spring Boot Starter</name>
-  <description>Spring Boot 3 starter for the QQ Bot Java SDK: qqbot.* configuration properties, QQBotClient auto-configuration and automatic EventListener bean discovery.</description>
+  <description>QQ 机器人 Java SDK 的 Spring Boot 3 Starter：qqbot.* 配置属性、QQBotClient 自动装配、EventListener Bean 自动发现，应用就绪后自动连接网关。</description>
 
   <dependencies>
     <dependency>

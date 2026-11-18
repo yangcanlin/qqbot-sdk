@@ -11,7 +11,7 @@
 
   <artifactId>qqbot-sdk-api</artifactId>
   <name>QQ Bot SDK API</name>
-  <description>Official OpenAPI client module of the QQ Bot Java SDK: group chat (V2), C2C private chat (V2), guild channel messages and DMS, interaction callbacks, rich-media upload, and the unified QQBotClient entry point.</description>
+  <description>QQ 机器人 Java SDK 官方接口模块：群聊 V2、单聊 C2C V2、频道消息与私信、互动事件回执、富媒体上传（URL/二进制/分片），提供 QQBotClient 统一入口，支持同步与异步调用。</description>
 
   <dependencies>
     <dependency>
