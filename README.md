@@ -44,12 +44,14 @@ try (QQBotClient client = new QQBotClient(config)) {
 
 ## 📚 详细文档（Gitee Wiki）
 
+Wiki 按四大板块组织：**入门 / 核心概念 / 接口指南 / 集成与工程**，每个功能模块独立成页。
+
 | 分类 | 页面 |
 |---|---|
-| 入门 | [快速开始](https://gitee.com/meilinkj/qqbot-sdk/wikis/快速开始) · [配置指南](https://gitee.com/meilinkj/qqbot-sdk/wikis/配置指南) · [常见问题](https://gitee.com/meilinkj/qqbot-sdk/wikis/常见问题) |
-| 核心概念 | [事件系统](https://gitee.com/meilinkj/qqbot-sdk/wikis/事件系统) · [网关与连接](https://gitee.com/meilinkj/qqbot-sdk/wikis/网关与连接) · [错误处理与调试](https://gitee.com/meilinkj/qqbot-sdk/wikis/错误处理与调试) · [模块架构](https://gitee.com/meilinkj/qqbot-sdk/wikis/模块架构) |
-| 接口指南 | [群聊接口](https://gitee.com/meilinkj/qqbot-sdk/wikis/群聊接口) · [单聊C2C接口](https://gitee.com/meilinkj/qqbot-sdk/wikis/单聊C2C接口) · [频道接口](https://gitee.com/meilinkj/qqbot-sdk/wikis/频道接口) · [富媒体上传](https://gitee.com/meilinkj/qqbot-sdk/wikis/富媒体上传) · [消息类型](https://gitee.com/meilinkj/qqbot-sdk/wikis/消息类型) · [互动事件](https://gitee.com/meilinkj/qqbot-sdk/wikis/互动事件) · [异步调用](https://gitee.com/meilinkj/qqbot-sdk/wikis/异步调用) |
-| 框架与工程 | [SpringBoot集成](https://gitee.com/meilinkj/qqbot-sdk/wikis/SpringBoot集成) · [构建与发布](https://gitee.com/meilinkj/qqbot-sdk/wikis/构建与发布) |
+| 入门 | [快速开始](https://gitee.com/meilinkj/qqbot-sdk/wikis/入门/快速开始) · [配置指南](https://gitee.com/meilinkj/qqbot-sdk/wikis/入门/配置指南) · [常见问题](https://gitee.com/meilinkj/qqbot-sdk/wikis/入门/常见问题) |
+| 核心概念 | [事件系统](https://gitee.com/meilinkj/qqbot-sdk/wikis/核心概念/事件系统) · [网关与连接](https://gitee.com/meilinkj/qqbot-sdk/wikis/核心概念/网关与连接) · [错误处理与调试](https://gitee.com/meilinkj/qqbot-sdk/wikis/核心概念/错误处理与调试) · [模块架构](https://gitee.com/meilinkj/qqbot-sdk/wikis/核心概念/模块架构) |
+| 接口指南 | [群聊接口](https://gitee.com/meilinkj/qqbot-sdk/wikis/接口指南/群聊接口) · [单聊C2C接口](https://gitee.com/meilinkj/qqbot-sdk/wikis/接口指南/单聊C2C接口) · [频道接口](https://gitee.com/meilinkj/qqbot-sdk/wikis/接口指南/频道接口) · [富媒体上传](https://gitee.com/meilinkj/qqbot-sdk/wikis/接口指南/富媒体上传) · [消息类型](https://gitee.com/meilinkj/qqbot-sdk/wikis/接口指南/消息类型) · [互动事件](https://gitee.com/meilinkj/qqbot-sdk/wikis/接口指南/互动事件) · [异步调用](https://gitee.com/meilinkj/qqbot-sdk/wikis/接口指南/异步调用) |
+| 集成与工程 | [SpringBoot集成](https://gitee.com/meilinkj/qqbot-sdk/wikis/集成与工程/SpringBoot集成) · [构建与发布](https://gitee.com/meilinkj/qqbot-sdk/wikis/集成与工程/构建与发布) |
 
 ## 反馈与贡献
 
