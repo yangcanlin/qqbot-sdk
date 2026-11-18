@@ -53,22 +53,45 @@ Wiki 参考官方文档做法按学习路线组织：**入门指南（手把手�
 | 进阶 | [理解事件与意图](https://gitee.com/meilinkj/qqbot-sdk/wikis/进阶/理解事件与意图) · [网关与重连](https://gitee.com/meilinkj/qqbot-sdk/wikis/进阶/网关与重连) · [配置参考](https://gitee.com/meilinkj/qqbot-sdk/wikis/进阶/配置参考) · [错误处理与调试](https://gitee.com/meilinkj/qqbot-sdk/wikis/进阶/错误处理与调试) · [异步调用](https://gitee.com/meilinkj/qqbot-sdk/wikis/进阶/异步调用) |
 | 集成与开发 | [SpringBoot集成](https://gitee.com/meilinkj/qqbot-sdk/wikis/集成与开发/SpringBoot集成) · [模块架构](https://gitee.com/meilinkj/qqbot-sdk/wikis/集成与开发/模块架构) · [构建与发布](https://gitee.com/meilinkj/qqbot-sdk/wikis/集成与开发/构建与发布) |
 
-## 🤖 AI 辅助开发（Qoder / Cursor / Claude Code / Codex / Trae 均可用）
+## 🤖 给你的 AI 编程助手装上 SDK 知识（Trae / Claude Code / CodeBuddy / Qoder / Cursor / Codex 均可用）
 
-本仓库自带 **qqbot-sdk Skill**（`.qoder/skills/qqbot-sdk/`），为 AI 编程代理提供精确的方法签名速查与 11 个任务模板，避免 AI 凭记忆臆造 API：
+AI 编程工具直接写 QQ 机器人代码时，容易凭记忆臆造不存在的方法。本仓库提供 **qqbot-sdk Skill 技能包**（源码在 [skill/](skill/) 目录，打包好的文件在 [dist/qqbot-sdk-skill.zip](dist/qqbot-sdk-skill.zip)），内含 1.0.0 全部方法签名速查 + 11 个可运行任务模板，让 AI 照着真实签名写代码。
 
-| 文件 | 内容 |
-|---|---|
-| `.qoder/skills/qqbot-sdk/SKILL.md` | 硬约束、最小骨架、任务导航、平台频控/时限规则、排障顺序 |
-| `.qoder/skills/qqbot-sdk/references/api-reference.md` | 1.0.0 全部公开类与方法签名、Intents 位值、配置默认值 |
-| `.qoder/skills/qqbot-sdk/references/recipes.md` | R1~R11 可运行模板：群聊/单聊/富媒体/按钮互动/频道/Spring Boot 等 |
+> 每次发版会重新生成，内容与 Maven 构件版本严格一致。
 
-用法：
+**它是什么：** 三个 Markdown 文件——`SKILL.md`（硬约束 + 任务导航 + 平台频控规则）、`references/api-reference.md`（方法签名）、`references/recipes.md`（R1~R11 代码模板）。装到你的 AI 工具的 skills 目录即可自动生效。
 
-- **Qoder**：clone 本仓库后用 Qoder 打开即自动加载项目级 Skill；在自己的机器人项目中把该文件夹复制到 `~/.qoder/skills/`（全局）或项目 `.qoder/skills/`（仅当前项目）；
-- **Trae / Cursor / Claude Code / Codex 等其他工具**：无 Skill 机制，直接让 AI 读取上述三个 Markdown 文件作为上下文即可（提示词示例："先阅读 `.qoder/skills/qqbot-sdk/SKILL.md` 及其 references，然后基于 qqbot-sdk 实现 XX 功能"）。
+### 按工具安装（任选其一）
 
-> Skill 内容随每次发版从源码重新提取，与构件版本保持一致。
+**Trae**：设置 → 技能与命令 → 创建 → **导入本地技能**，选择下载的 [qqbot-sdk-skill.zip](https://gitee.com/meilinkj/qqbot-sdk/raw/main/dist/qqbot-sdk-skill.zip)。或命令行安装到全局：
+
+```bash
+mkdir -p ~/.trae-cn/skills/qqbot-sdk/references && cd ~/.trae-cn/skills/qqbot-sdk \
+  && curl -fsSL -o SKILL.md https://gitee.com/meilinkj/qqbot-sdk/raw/main/skill/SKILL.md \
+  && curl -fsSL -o references/api-reference.md https://gitee.com/meilinkj/qqbot-sdk/raw/main/skill/references/api-reference.md \
+  && curl -fsSL -o references/recipes.md https://gitee.com/meilinkj/qqbot-sdk/raw/main/skill/references/recipes.md
+```
+
+**Claude Code**：把同样的三个文件放到 `~/.claude/skills/qqbot-sdk/`（全局）或你项目的 `.claude/skills/qqbot-sdk/`（仅当前项目）——上面命令把路径 `~/.trae-cn/skills` 换成 `~/.claude/skills` 即可。
+
+**CodeBuddy（腾讯CodeBuddy IDE/CLI）**：同样认 SKILL.md 格式，放到工作区 `.codebuddy/skills/qqbot-sdk/`，或用 IDE 里的「导入 Skill」按钮选择上面那个 zip。
+
+**Qoder**：放到 `~/.qoder/skills/qqbot-sdk/`（全局）或项目 `.qoder/skills/qqbot-sdk/`，也可在技能市场/本地技能导入里直接选 zip。
+
+**Cursor / Codex / 其他支持 AGENTS.md 的工具**：没有 Skill 机制，把下面这段粘到你项目的 `AGENTS.md`（Codex 是 `AGENTS.md`，Cursor 也官方支持；Claude Code 可放 `CLAUDE.md`）：
+
+```markdown
+## QQ 机器人开发（qqbot-sdk）
+
+- Maven 依赖：cn.meilinkj.qqbot:qqbot-sdk-api:1.0.0（Spring Boot 项目用 qqbot-sdk-spring-boot-starter）
+- 写任何 QQ 机器人代码前，先读取以下三个文件，严格按其中签名开发；
+  仅支持官方 api-v2 协议（api.bot.qq.com），禁止 OneBot / Simbot / NapCat 等非官方协议：
+  - https://gitee.com/meilinkj/qqbot-sdk/raw/main/skill/SKILL.md
+  - https://gitee.com/meilinkj/qqbot-sdk/raw/main/skill/references/api-reference.md
+  - https://gitee.com/meilinkj/qqbot-sdk/raw/main/skill/references/recipes.md
+```
+
+装好后直接对 AI 说「用 qqbot-sdk 实现群聊 @消息回声」这类需求即可。详细图文说明见 Wiki：[给 AI 助手装 SDK 知识](https://gitee.com/meilinkj/qqbot-sdk/wikis/入门指南/AI助手接入SDK知识)。
 
 ## 反馈与贡献
 

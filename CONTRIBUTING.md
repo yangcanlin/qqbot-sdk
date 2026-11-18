@@ -22,7 +22,7 @@ mvn clean install   # 编译 + 单元测试（Java 17+）
 
 - 提交前确保 `mvn clean install` 全部通过。
 - 新功能需附带单元测试；协议类测试的断言值请注明官方文档出处。
-- 公开 API 有增减 / 签名变化时，同步更新仓库内置 AI Skill 的签名速查：`.qoder/skills/qqbot-sdk/references/api-reference.md`（发版时重新从源码提取）。
+- 公开 API 有增减 / 签名变化时，同步更新 AI Skill 分发源的签名速查：`skill/references/api-reference.md`（发版时重新从源码提取），并运行 `scripts/build-skill-package.sh` 重新生成 `dist/qqbot-sdk-skill.zip`。
 - 代码风格：显式 `@JsonProperty` snake_case 映射、流式 setter、SLF4J 日志（禁止 `System.out`）。
 - 每个接口 / 枚举 / 关键方法的 Javadoc 附官方文档锚点链接。
 
