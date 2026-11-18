@@ -11,7 +11,7 @@
 
   <artifactId>qqbot-sdk-core</artifactId>
   <name>QQ Bot SDK Core</name>
-  <description>核心协议：AccessToken 鉴权、HTTP 客户端、WebSocket 网关、事件分发、官方数据模型</description>
+  <description>Core protocol module of the QQ Open Platform Bot Java SDK: access-token authentication, HTTP client with retry and rate limiting, WebSocket gateway (heartbeat, reconnect, resume, seq management), event dispatcher and official data models.</description>
 
   <dependencies>
     <dependency>

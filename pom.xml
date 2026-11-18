@@ -10,7 +10,7 @@
   <packaging>pom</packaging>
 
   <name>QQ Bot SDK Parent</name>
-  <description>QQ 开放平台 V2 机器人 Java SDK（严格对齐官方文档 https://bot.q.qq.com/wiki/develop/api-v2/）</description>
+  <description>Java SDK for the QQ Open Platform Bot API V2, covering group chat, C2C private chat and guild channel bots. Strictly aligned with the official documentation (https://bot.q.qq.com/wiki/develop/api-v2/). Features: automatic access-token management, WebSocket gateway with heartbeat / exponential-backoff reconnect / session resume, typed event listeners, sync and async APIs, request retry and rate limiting, platform error-code parsing, rich-media URL / binary / chunked upload, and a Spring Boot 3 starter. Java 17+, Apache License 2.0.</description>
   <url>https://github.com/yangcanlin/qqbot-sdk</url>
 
   <licenses>
