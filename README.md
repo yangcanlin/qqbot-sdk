@@ -53,6 +53,23 @@ Wiki 参考官方文档做法按学习路线组织：**入门指南（手把手�
 | 进阶 | [理解事件与意图](https://gitee.com/meilinkj/qqbot-sdk/wikis/进阶/理解事件与意图) · [网关与重连](https://gitee.com/meilinkj/qqbot-sdk/wikis/进阶/网关与重连) · [配置参考](https://gitee.com/meilinkj/qqbot-sdk/wikis/进阶/配置参考) · [错误处理与调试](https://gitee.com/meilinkj/qqbot-sdk/wikis/进阶/错误处理与调试) · [异步调用](https://gitee.com/meilinkj/qqbot-sdk/wikis/进阶/异步调用) |
 | 集成与开发 | [SpringBoot集成](https://gitee.com/meilinkj/qqbot-sdk/wikis/集成与开发/SpringBoot集成) · [模块架构](https://gitee.com/meilinkj/qqbot-sdk/wikis/集成与开发/模块架构) · [构建与发布](https://gitee.com/meilinkj/qqbot-sdk/wikis/集成与开发/构建与发布) |
 
+## 🤖 AI 辅助开发（Qoder / Cursor / Claude Code / Codex / Trae 均可用）
+
+本仓库自带 **qqbot-sdk Skill**（`.qoder/skills/qqbot-sdk/`），为 AI 编程代理提供精确的方法签名速查与 11 个任务模板，避免 AI 凭记忆臆造 API：
+
+| 文件 | 内容 |
+|---|---|
+| `.qoder/skills/qqbot-sdk/SKILL.md` | 硬约束、最小骨架、任务导航、平台频控/时限规则、排障顺序 |
+| `.qoder/skills/qqbot-sdk/references/api-reference.md` | 1.0.0 全部公开类与方法签名、Intents 位值、配置默认值 |
+| `.qoder/skills/qqbot-sdk/references/recipes.md` | R1~R11 可运行模板：群聊/单聊/富媒体/按钮互动/频道/Spring Boot 等 |
+
+用法：
+
+- **Qoder**：clone 本仓库后用 Qoder 打开即自动加载项目级 Skill；在自己的机器人项目中把该文件夹复制到 `~/.qoder/skills/`（全局）或项目 `.qoder/skills/`（仅当前项目）；
+- **Trae / Cursor / Claude Code / Codex 等其他工具**：无 Skill 机制，直接让 AI 读取上述三个 Markdown 文件作为上下文即可（提示词示例："先阅读 `.qoder/skills/qqbot-sdk/SKILL.md` 及其 references，然后基于 qqbot-sdk 实现 XX 功能"）。
+
+> Skill 内容随每次发版从源码重新提取，与构件版本保持一致。
+
 ## 反馈与贡献
 
 - 🐛 Bug / 功能建议：[Gitee Issues](https://gitee.com/meilinkj/qqbot-sdk/issues)（已配置表单模板）
