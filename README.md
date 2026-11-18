@@ -44,14 +44,14 @@ try (QQBotClient client = new QQBotClient(config)) {
 
 ## 📚 详细文档（Gitee Wiki）
 
-Wiki 按四大板块组织：**入门 / 核心概念 / 接口指南 / 集成与工程**，每个功能模块独立成页。
+Wiki 参考官方文档做法按学习路线组织：**入门指南（手把手）→ 功能（按场景：群聊/单聊/频道…）→ 进阶 → 集成与开发**。新手请直接阅读 [Wiki 首页的三条学习路线](https://gitee.com/meilinkj/qqbot-sdk/wikis/Home)。
 
 | 分类 | 页面 |
 |---|---|
-| 入门 | [快速开始](https://gitee.com/meilinkj/qqbot-sdk/wikis/入门/快速开始) · [配置指南](https://gitee.com/meilinkj/qqbot-sdk/wikis/入门/配置指南) · [常见问题](https://gitee.com/meilinkj/qqbot-sdk/wikis/入门/常见问题) |
-| 核心概念 | [事件系统](https://gitee.com/meilinkj/qqbot-sdk/wikis/核心概念/事件系统) · [网关与连接](https://gitee.com/meilinkj/qqbot-sdk/wikis/核心概念/网关与连接) · [错误处理与调试](https://gitee.com/meilinkj/qqbot-sdk/wikis/核心概念/错误处理与调试) · [模块架构](https://gitee.com/meilinkj/qqbot-sdk/wikis/核心概念/模块架构) |
-| 接口指南 | [群聊接口](https://gitee.com/meilinkj/qqbot-sdk/wikis/接口指南/群聊接口) · [单聊C2C接口](https://gitee.com/meilinkj/qqbot-sdk/wikis/接口指南/单聊C2C接口) · [频道接口](https://gitee.com/meilinkj/qqbot-sdk/wikis/接口指南/频道接口) · [富媒体上传](https://gitee.com/meilinkj/qqbot-sdk/wikis/接口指南/富媒体上传) · [消息类型](https://gitee.com/meilinkj/qqbot-sdk/wikis/接口指南/消息类型) · [互动事件](https://gitee.com/meilinkj/qqbot-sdk/wikis/接口指南/互动事件) · [异步调用](https://gitee.com/meilinkj/qqbot-sdk/wikis/接口指南/异步调用) |
-| 集成与工程 | [SpringBoot集成](https://gitee.com/meilinkj/qqbot-sdk/wikis/集成与工程/SpringBoot集成) · [构建与发布](https://gitee.com/meilinkj/qqbot-sdk/wikis/集成与工程/构建与发布) |
+| 入门指南 | [启动接入](https://gitee.com/meilinkj/qqbot-sdk/wikis/入门指南/启动接入) · [快速开始](https://gitee.com/meilinkj/qqbot-sdk/wikis/入门指南/快速开始) · [凭证与接口调用](https://gitee.com/meilinkj/qqbot-sdk/wikis/入门指南/凭证与接口调用) · [新手常见问题](https://gitee.com/meilinkj/qqbot-sdk/wikis/入门指南/新手常见问题) |
+| 功能 | [消息总览](https://gitee.com/meilinkj/qqbot-sdk/wikis/功能/消息总览) · [群聊消息](https://gitee.com/meilinkj/qqbot-sdk/wikis/功能/群聊消息) · [单聊消息](https://gitee.com/meilinkj/qqbot-sdk/wikis/功能/单聊消息) · [频道消息](https://gitee.com/meilinkj/qqbot-sdk/wikis/功能/频道消息) · [消息类型](https://gitee.com/meilinkj/qqbot-sdk/wikis/功能/消息类型) · [富媒体上传](https://gitee.com/meilinkj/qqbot-sdk/wikis/功能/富媒体上传) · [按钮与互动](https://gitee.com/meilinkj/qqbot-sdk/wikis/功能/按钮与互动) |
+| 进阶 | [理解事件与意图](https://gitee.com/meilinkj/qqbot-sdk/wikis/进阶/理解事件与意图) · [网关与重连](https://gitee.com/meilinkj/qqbot-sdk/wikis/进阶/网关与重连) · [配置参考](https://gitee.com/meilinkj/qqbot-sdk/wikis/进阶/配置参考) · [错误处理与调试](https://gitee.com/meilinkj/qqbot-sdk/wikis/进阶/错误处理与调试) · [异步调用](https://gitee.com/meilinkj/qqbot-sdk/wikis/进阶/异步调用) |
+| 集成与开发 | [SpringBoot集成](https://gitee.com/meilinkj/qqbot-sdk/wikis/集成与开发/SpringBoot集成) · [模块架构](https://gitee.com/meilinkj/qqbot-sdk/wikis/集成与开发/模块架构) · [构建与发布](https://gitee.com/meilinkj/qqbot-sdk/wikis/集成与开发/构建与发布) |
 
 ## 反馈与贡献
 
