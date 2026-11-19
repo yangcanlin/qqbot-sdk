@@ -36,7 +36,10 @@ public class InteractionApi {
         this.http = http;
     }
 
-    /** 回应互动事件，code 取值 0~5（见 CODE_* 常量）。 */
+    /**
+     * 官方：PUT /interactions/{interaction_id}（互动事件响应）；50 QPS，同一 id 仅能回应一次，code 取值 0~5（见 CODE_* 常量）。
+     * <a href="https://bot.q.qq.com/wiki/develop/api-v2/autogen/api/interactions_interaction_id.put.html">文档</a>
+     */
     public void respond(String interactionId, int code) {
         Objects.requireNonNull(interactionId, "interactionId 不能为空");
         if (code < 0 || code > 5) {
@@ -45,7 +48,7 @@ public class InteractionApi {
         http.put("/interactions/" + interactionId, Map.of("code", code));
     }
 
-    /** 回应成功（code=0）。 */
+    /** 官方：PUT /interactions/{interaction_id}（互动事件响应）code=0 回应成功。 */
     public void respondSuccess(String interactionId) {
         respond(interactionId, CODE_SUCCESS);
     }

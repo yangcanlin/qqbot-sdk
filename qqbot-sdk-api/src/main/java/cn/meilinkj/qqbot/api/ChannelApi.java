@@ -33,7 +33,10 @@ public class ChannelApi {
         this.http = http;
     }
 
-    /** 发送子频道消息。 */
+    /**
+     * 官方：POST /channels/{channel_id}/messages（发表频道发言）；每子频道 5 条/秒，msg_id 被动回复 5 分钟内有效（无 msg_seq）。
+     * <a href="https://bot.q.qq.com/wiki/develop/api-v2/server-inter/channel/message/send.html">文档</a>
+     */
     public Message sendMessage(String channelId, ChannelMessageRequest request) {
         Objects.requireNonNull(channelId, "channelId 不能为空");
         Objects.requireNonNull(request, "request 不能为空");
@@ -46,14 +49,14 @@ public class ChannelApi {
         return http.postAsync("/channels/" + channelId + "/messages", request, Message.class);
     }
 
-    /** 撤回子频道消息（私域机器人）。hideTip=true 时隐藏撤回提示小灰条。 */
+    /** 官方：DELETE /channels/{channel_id}/messages/{message_id}?hidetip=（撤回频道消息，私域机器人）；hideTip=true 隐藏撤回提示小灰条。 */
     public void recall(String channelId, String messageId, boolean hideTip) {
         Objects.requireNonNull(channelId, "channelId 不能为空");
         Objects.requireNonNull(messageId, "messageId 不能为空");
         http.delete("/channels/" + channelId + "/messages/" + messageId + "?hidetip=" + hideTip);
     }
 
-    /** 创建私信会话。recipientId 为接收者用户 ID，sourceGuildId 为来源频道 ID。 */
+    /** 官方：POST /users/@me/dms（创建私信会话）。recipientId 为接收者用户 ID，sourceGuildId 为来源频道 ID。 */
     public Dms createDms(String recipientId, String sourceGuildId) {
         Objects.requireNonNull(recipientId, "recipientId 不能为空");
         Objects.requireNonNull(sourceGuildId, "sourceGuildId 不能为空");
@@ -63,14 +66,14 @@ public class ChannelApi {
         return http.post("/users/@me/dms", body, Dms.class);
     }
 
-    /** 发送私信消息（参数与子频道发消息一致），dmsGuildId 来自 createDms 返回的 guild_id。 */
+    /** 官方：POST /dms/{guild_id}/messages（发送私信消息），dmsGuildId 来自 createDms 返回的 guild_id。 */
     public Message sendDms(String dmsGuildId, ChannelMessageRequest request) {
         Objects.requireNonNull(dmsGuildId, "dmsGuildId 不能为空");
         Objects.requireNonNull(request, "request 不能为空");
         return http.post("/dms/" + dmsGuildId + "/messages", request, Message.class);
     }
 
-    /** 撤回私信消息。 */
+    /** 官方：DELETE /dms/{guild_id}/messages/{message_id}?hidetip=（撤回私信消息）。 */
     public void recallDms(String dmsGuildId, String messageId, boolean hideTip) {
         Objects.requireNonNull(dmsGuildId, "dmsGuildId 不能为空");
         Objects.requireNonNull(messageId, "messageId 不能为空");

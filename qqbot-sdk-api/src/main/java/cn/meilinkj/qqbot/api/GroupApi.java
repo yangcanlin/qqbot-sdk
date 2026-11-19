@@ -46,7 +46,11 @@ public class GroupApi {
         return "/v2/groups/" + groupOpenid;
     }
 
-    /** 发送消息（完整请求体，支持文本/Markdown/富媒体/卡片/键盘）。 */
+    /**
+     * 官方：POST /v2/groups/{group_openid}/messages（发送群聊消息）；100 QPS。
+     * 完整请求体，支持文本/Markdown/富媒体/卡片/键盘。
+     * <a href="https://bot.q.qq.com/wiki/develop/api-v2/autogen/api/v2_groups_group_openid_messages.post.html">文档</a>
+     */
     public SendMessageResponse sendMessage(String groupOpenid, MessageRequest request) {
         Objects.requireNonNull(request, "request 不能为空");
         return http.post(base(groupOpenid) + "/messages", request, SendMessageResponse.class);
@@ -57,13 +61,13 @@ public class GroupApi {
         return http.postAsync(base(groupOpenid) + "/messages", request, SendMessageResponse.class);
     }
 
-    /** 主动发送文本消息。 */
+    /** 官方：POST /v2/groups/{group_openid}/messages（发送群聊消息）主动文本消息。 */
     public SendMessageResponse sendText(String groupOpenid, String content) {
         return sendMessage(groupOpenid, MessageRequest.text(content));
     }
 
     /**
-     * 被动回复文本消息，自动分配递增 msg_seq（同一 msg_id 最多 5 次）。
+     * 官方：POST /v2/groups/{group_openid}/messages（发送群聊消息）被动回复，自动分配递增 msg_seq（同一 msg_id 最多 5 次）。
      * msgId 来自 GROUP_AT_MESSAGE_CREATE / GROUP_MESSAGE_CREATE 事件的 d.id。
      */
     public SendMessageResponse replyText(String groupOpenid, String msgId, String content) {
@@ -71,13 +75,16 @@ public class GroupApi {
         return sendMessage(groupOpenid, MessageRequest.text(content).replyTo(msgId, seqAllocator.next(msgId)));
     }
 
-    /** 上传 URL 资源后发送图片消息（file_type=1）。 */
+    /** 官方：POST files + POST messages（上传群聊富媒体并发送图片消息，file_type=1）一步完成。 */
     public SendMessageResponse sendImageByUrl(String groupOpenid, String imageUrl) {
         MediaUploadResponse uploaded = uploadMedia(groupOpenid, MediaUploadRequest.ofUrl(1, imageUrl));
         return sendMessage(groupOpenid, MessageRequest.media(uploaded.getFileInfo()));
     }
 
-    /** 撤回消息，仅支持 2 分钟内发送的消息；管理员机器人可撤回群成员消息。 */
+    /**
+     * 官方：DELETE /v2/groups/{group_openid}/messages/{message_id}（撤回群聊消息）；10 QPS，仅支持 2 分钟内；管理员机器人可撤回群成员消息。
+     * <a href="https://bot.q.qq.com/wiki/develop/api-v2/autogen/api/v2_groups_group_openid_messages_message_id.delete.html">文档</a>
+     */
     public void recall(String groupOpenid, String messageId) {
         Objects.requireNonNull(messageId, "messageId 不能为空");
         http.delete(base(groupOpenid) + "/messages/" + messageId);
@@ -88,23 +95,26 @@ public class GroupApi {
         return http.deleteAsync(base(groupOpenid) + "/messages/" + messageId);
     }
 
-    /** 富媒体上传（URL 方式或分片合并，携带 upload_id）。 */
+    /**
+     * 官方：POST /v2/groups/{group_openid}/files（群聊上传富媒体）；50 QPS。URL 方式或携带 upload_id 分片合并。
+     * <a href="https://bot.q.qq.com/wiki/develop/api-v2/autogen/api/v2_groups_group_openid_files.post.html">文档</a>
+     */
     public MediaUploadResponse uploadMedia(String groupOpenid, MediaUploadRequest request) {
         Objects.requireNonNull(request, "request 不能为空");
         return MediaUploader.upload(http, base(groupOpenid), request);
     }
 
-    /** 二进制直传（≤5MB）。 */
+    /** 官方：POST /v2/groups/{group_openid}/files（群聊上传富媒体）二进制直传方式（≤5MB）。 */
     public MediaUploadResponse uploadBinary(String groupOpenid, int fileType, String fileName, byte[] data) {
         return MediaUploader.uploadBinary(http, base(groupOpenid), fileType, fileName, data);
     }
 
-    /** 分片上传（大文件推荐）。 */
+    /** 官方：POST /v2/groups/{group_openid}/files（群聊上传富媒体）分片上传方式（大文件推荐）。 */
     public MediaUploadResponse uploadChunked(String groupOpenid, int fileType, String fileName, byte[] data) {
         return MediaUploader.uploadChunked(http, base(groupOpenid), fileType, fileName, data);
     }
 
-    /** 上传本地文件：≤5MB 自动二进制直传，否则分片上传。 */
+    /** 官方：POST /v2/groups/{group_openid}/files（群聊上传富媒体）本地文件封装：≤5MB 直传，否则分片。 */
     public MediaUploadResponse uploadFile(String groupOpenid, int fileType, Path file) throws IOException {
         return MediaUploader.uploadAuto(http, base(groupOpenid), fileType,
                 file.getFileName().toString(), Files.readAllBytes(file));

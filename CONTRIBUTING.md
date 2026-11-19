@@ -1,5 +1,7 @@
 # 贡献指南
 
+> 最后修改时间：2026-11-19 10:24:30
+
 感谢关注 QQ 开放平台机器人 Java SDK！
 
 ## 核心原则
@@ -24,7 +26,11 @@ mvn clean install   # 编译 + 单元测试（Java 17+）
 - 新功能需附带单元测试；协议类测试的断言值请注明官方文档出处。
 - 公开 API 有增减 / 签名变化时，同步更新 AI Skill 分发源的签名速查：`skill/references/api-reference.md`（发版时重新从源码提取），并运行 `scripts/build-skill-package.sh` 重新生成 `dist/qqbot-sdk-skill.zip`。
 - 代码风格：显式 `@JsonProperty` snake_case 映射、流式 setter、SLF4J 日志（禁止 `System.out`）。
-- 每个接口 / 枚举 / 关键方法的 Javadoc 附官方文档锚点链接。
+- 每个接口 / 枚举 / 关键方法的 Javadoc 附官方文档锚点链接，并且**分清两条线**：接口方法首行写「官方：HTTP方法 路径（官方中文名）」，事件类首行写「官方事件名 + 事件页」；`Intents.XXX` 是订阅开关不是事件名，不要混用。
+- 文档只写**当前版本的正确用法**，不写"从旧版本怎么升级 / 旧地址迁移 / 兼容别名"这类历史包袱说明；版本沿革写进 `CHANGELOG.md`，并同步到 Wiki 的 `10-更新日志/<N-版本号>.md`（每个版本一页，新增版本时新建一页并按 `N-` 前缀排在最前面）。
+- 改 Wiki（`qqbot-sdk-wiki` 仓库）后运行 `python3 scripts/update-wiki-meta.py <wiki目录>`，
+  自动刷新每页页首「最后修改时间」（取文件修改时间，格式 `yyyy-MM-dd HH:mm:ss`）与页尾「上一章 / 下一章」导航；
+  新增页面按 `N-` 前缀插入阅读顺序，重跑脚本即可接续链条。本仓库根目录的 `README.md` / `CHANGELOG.md` / `CONTRIBUTING.md` 里的「最后修改时间」是手写的，改动后要同步改成当前时间（同样精确到秒）。
 
 ## 提交与 PR
 

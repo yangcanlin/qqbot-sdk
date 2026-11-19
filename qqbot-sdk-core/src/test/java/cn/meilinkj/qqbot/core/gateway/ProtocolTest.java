@@ -22,6 +22,7 @@ class ProtocolTest {
         assertEquals(1L << 9, Intents.GUILD_MESSAGES.getValue());
         assertEquals(1L << 10, Intents.GUILD_MESSAGE_REACTIONS.getValue());
         assertEquals(1L << 12, Intents.DIRECT_MESSAGE.getValue());
+        assertEquals(1L << 24, Intents.GROUP_MEMBER_EVENT.getValue());
         assertEquals(1L << 25, Intents.GROUP_AND_C2C_EVENT.getValue());
         assertEquals(1L << 26, Intents.INTERACTION.getValue());
         assertEquals(1L << 27, Intents.MESSAGE_AUDIT.getValue());

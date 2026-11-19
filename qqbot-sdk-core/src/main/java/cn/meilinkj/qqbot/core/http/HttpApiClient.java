@@ -63,6 +63,15 @@ public class HttpApiClient {
         return execute("PUT", path, body, responseType);
     }
 
+    /** PATCH 局部更新（入群自动审批策略修改等接口使用）。 */
+    public <T> T patch(String path, Object body, Class<T> responseType) {
+        return execute("PATCH", path, body, responseType);
+    }
+
+    public <T> CompletableFuture<T> patchAsync(String path, Object body, Class<T> responseType) {
+        return CompletableFuture.supplyAsync(() -> patch(path, body, responseType), asyncExecutor);
+    }
+
     /** DELETE 等无响应体接口（成功 200/204）。 */
     public void delete(String path) {
         execute("DELETE", path, null, Void.class);
@@ -78,6 +87,10 @@ public class HttpApiClient {
 
     public <T> CompletableFuture<T> postAsync(String path, Object body, Class<T> responseType) {
         return CompletableFuture.supplyAsync(() -> post(path, body, responseType), asyncExecutor);
+    }
+
+    public <T> CompletableFuture<T> putAsync(String path, Object body, Class<T> responseType) {
+        return CompletableFuture.supplyAsync(() -> put(path, body, responseType), asyncExecutor);
     }
 
     public CompletableFuture<Void> deleteAsync(String path) {
