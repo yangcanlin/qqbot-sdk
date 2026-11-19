@@ -1,6 +1,6 @@
 # 贡献指南
 
-> 最后修改时间：2026-11-19 10:24:30
+> 最后修改时间：2026-11-19 11:26:59
 
 感谢关注 QQ 开放平台机器人 Java SDK！
 
@@ -60,6 +60,8 @@ mvn clean deploy -Prelease
 ```
 
 默认 `autoPublish=false`，需在 [Central Portal](https://central.sonatype.com) 手动确认发布。
+发布范围只有 `qqbot-sdk-parent` / `qqbot-sdk-core` / `qqbot-sdk-api` / `qqbot-sdk-spring-boot-starter`
+四个构件；`qqbot-sdk-example` 由 `excludeArtifacts` 排除，不会上传到中央仓库。
 
 ## 许可证
 
